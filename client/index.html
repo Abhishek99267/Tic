@@ -11,57 +11,492 @@
 
     <title>Tic Tac Arena</title>
 
-    <link
-        rel="stylesheet"
-        href="css/global.css"
+    <meta
+        name="description"
+        content="Tic Tac Arena - Real-time online multiplayer Tic Tac Toe"
     >
+
+    <link rel="stylesheet" href="css/global.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #263b70 0%,
+                    #10172a 45%,
+                    #070b15 100%
+                );
+            color: #ffffff;
+        }
+
+        .home-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .home-header {
+            height: 76px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(8, 12, 25, 0.55);
+            backdrop-filter: blur(12px);
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .brand span {
+            color: #7c9cff;
+        }
+
+        .header-badge {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(124,156,255,0.12);
+            border: 1px solid rgba(124,156,255,0.25);
+            color: #b8c7ff;
+            font-size: 13px;
+        }
+
+        .hero {
+            flex: 1;
+            width: min(1100px, 92%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #aebcff;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 0.95;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 .highlight {
+            color: #7c9cff;
+        }
+
+        .hero-description {
+            margin-top: 26px;
+            color: #aeb7ca;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .feature {
+            padding: 9px 13px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #d9def0;
+            font-size: 13px;
+        }
+
+        .play-card {
+            padding: 32px;
+            border-radius: 24px;
+            background: rgba(18, 25, 47, 0.85);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.35);
+            backdrop-filter: blur(18px);
+        }
+
+        .play-card h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .play-card p {
+            margin: 10px 0 25px;
+            color: #9ca8c0;
+            line-height: 1.5;
+        }
+
+        .name-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #dce2f1;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        #usernameInput {
+            width: 100%;
+            height: 52px;
+            padding: 0 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            outline: none;
+            background: rgba(5,9,20,0.8);
+            color: white;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        #usernameInput:focus {
+            border-color: #7c9cff;
+            box-shadow: 0 0 0 3px rgba(124,156,255,0.12);
+        }
+
+        #usernameInput::placeholder {
+            color: #66718a;
+        }
+
+        .button-group {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .action-button {
+            width: 100%;
+            height: 52px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition:
+                transform 0.2s,
+                opacity 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-button:active {
+            transform: translateY(0);
+        }
+
+        #createButton {
+            background: #7c9cff;
+            color: #071022;
+            box-shadow: 0 10px 30px rgba(124,156,255,0.22);
+        }
+
+        #joinButton {
+            background: rgba(255,255,255,0.07);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .error-message {
+            min-height: 22px;
+            margin-top: 14px;
+            color: #ff7d91;
+            font-size: 13px;
+        }
+
+        .game-preview {
+            margin: 0 auto 28px;
+            width: 210px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+        }
+
+        .preview-cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .preview-x {
+            color: #ff6f91;
+        }
+
+        .preview-o {
+            color: #68d9ff;
+        }
+
+        .home-footer {
+            padding: 22px 6%;
+            text-align: center;
+            color: #65718a;
+            font-size: 13px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        @media (max-width: 800px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding: 45px 0;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: auto;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .features {
+                justify-content: center;
+            }
+
+            .play-card {
+                max-width: 500px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .home-header {
+                padding: 0 20px;
+            }
+
+            .header-badge {
+                display: none;
+            }
+
+            .hero {
+                width: 90%;
+            }
+
+            .play-card {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <main class="home">
+    <div class="home-page">
 
-        <section class="hero">
+        <!-- HEADER -->
+        <header class="home-header">
 
-            <div class="logo">
-                TIC TAC
-                <span>ARENA</span>
+            <div class="brand">
+                Tic Tac <span>Arena</span>
             </div>
 
-            <p class="tagline">
-                Classic Tic-Tac-Toe.
-                Multiplayer Battle.
-            </p>
+            <div class="header-badge">
+                ● Live Multiplayer
+            </div>
 
-            <div class="home-card">
+        </header>
+
+
+        <!-- MAIN -->
+        <main class="hero">
+
+            <!-- LEFT SIDE -->
+            <section class="hero-content">
+
+                <div class="eyebrow">
+                    ONLINE MULTIPLAYER GAME
+                </div>
+
+                <h1>
+                    Tic Tac
+                    <span class="highlight">
+                        Arena
+                    </span>
+                </h1>
+
+                <p class="hero-description">
+                    Challenge another player in a real-time
+                    multiplayer Tic Tac Toe battle. Win rounds,
+                    earn points, customize your arena and
+                    climb your personal stats.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        ⚡ Real-time
+                    </div>
+
+                    <div class="feature">
+                        👥 2 Players
+                    </div>
+
+                    <div class="feature">
+                        🏆 Best of 3
+                    </div>
+
+                    <div class="feature">
+                        🛍️ Shop
+                    </div>
+
+                    <div class="feature">
+                        🎨 Customization
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RIGHT SIDE -->
+            <section class="play-card">
+
+                <div class="game-preview">
+
+                    <div class="preview-cell preview-x">
+                        ✕
+                    </div>
+
+                    <div class="preview-cell">
+                    </div>
+
+                    <div class="preview-cell preview-o">
+                        ○
+                    </div>
+
+                    <div class="preview-cell">
+                    </div>
+
+                    <div class="preview-cell preview-x">
+                        ✕
+                    </div>
+
+                    <div class="preview-cell">
+                    </div>
+
+                    <div class="preview-cell preview-o">
+                        ○
+                    </div>
+
+                    <div class="preview-cell">
+                    </div>
+
+                    <div class="preview-cell preview-x">
+                        ✕
+                    </div>
+
+                </div>
+
+
+                <h2>
+                    Enter the Arena
+                </h2>
+
+                <p>
+                    Choose your player name to create
+                    or join a multiplayer room.
+                </p>
+
+
+                <label
+                    class="name-label"
+                    for="usernameInput"
+                >
+                    Player Name
+                </label>
 
                 <input
-                    id="username"
                     type="text"
+                    id="usernameInput"
                     placeholder="Enter your name"
                     maxlength="20"
+                    autocomplete="off"
                 >
 
-                <button
-                    id="createRoomBtn"
-                    class="primary-btn"
-                >
-                    CREATE GAME
-                </button>
 
-                <button
-                    id="joinRoomBtn"
-                    class="secondary-btn"
-                >
-                    JOIN GAME
-                </button>
+                <div class="button-group">
 
-            </div>
+                    <button
+                        id="createButton"
+                        class="action-button"
+                        type="button"
+                    >
+                        Create Room
+                    </button>
 
-        </section>
+                    <button
+                        id="joinButton"
+                        class="action-button"
+                        type="button"
+                    >
+                        Join Room
+                    </button>
 
-    </main>
+                </div>
 
+
+                <div
+                    id="errorMessage"
+                    class="error-message"
+                ></div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer class="home-footer">
+            Tic Tac Arena • Real-time multiplayer gaming
+        </footer>
+
+    </div>
+
+
+    <!-- APP JS -->
     <script src="js/app.js"></script>
 
 </body>
