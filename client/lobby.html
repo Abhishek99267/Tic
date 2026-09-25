@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tic Tac Arena - Lobby</title>
+
+    <!-- Global styles -->
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <!-- Lobby styles -->
+    <link
+        rel="stylesheet"
+        href="css/lobby.css"
+    >
+</head>
+
+
+<body>
+
+    <main class="lobby-page">
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="lobby-header">
+
+            <div>
+
+                <span class="brand">
+                    Tic Tac Arena
+                </span>
+
+                <h1>
+                    Game Lobby
+                </h1>
+
+                <p>
+                    Create a room or join your friend's game.
+                </p>
+
+            </div>
+
+
+            <button
+                id="backBtn"
+                class="back-button"
+                type="button"
+            >
+                ← Back
+            </button>
+
+        </header>
+
+
+
+        <!-- =====================================
+             CREATE ROOM SECTION
+        ====================================== -->
+
+        <section
+            id="createSection"
+            class="lobby-section"
+            style="display: none;"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    CREATE
+                </span>
+
+                <h2>
+                    Your Game Room
+                </h2>
+
+            </div>
+
+
+            <!-- ROOM CODE -->
+
+            <div class="room-code-card">
+
+                <p>
+                    Share this code with your opponent
+                </p>
+
+
+                <div class="room-code-row">
+
+                    <strong
+                        id="roomCodeDisplay"
+                        class="room-code"
+                    >
+                        ------
+                    </strong>
+
+
+                    <button
+                        id="copyRoomBtn"
+                        class="copy-button"
+                        type="button"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PLAYERS -->
+
+            <div class="players-card">
+
+                <div class="players-card-header">
+
+                    <h3>
+                        Players
+                    </h3>
+
+                    <span
+                        id="playerCount"
+                        class="player-count"
+                    >
+                        0 / 2
+                    </span>
+
+                </div>
+
+
+                <ul
+                    id="playersList"
+                    class="players-list"
+                >
+
+                    <li class="waiting-player">
+                        Waiting for players...
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- START GAME -->
+
+            <button
+                id="startGameBtn"
+                class="start-game-button"
+                type="button"
+                disabled
+            >
+                Waiting for Player...
+            </button>
+
+
+            <p class="lobby-hint">
+                The game will start when two players are connected.
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             JOIN ROOM SECTION
+        ====================================== -->
+
+        <section
+            id="joinSection"
+            class="lobby-section"
+            style="display: none;"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    JOIN
+                </span>
+
+                <h2>
+                    Join a Game
+                </h2>
+
+            </div>
+
+
+            <div class="join-card">
+
+                <label for="joinRoomInput">
+                    Room Code
+                </label>
+
+
+                <input
+                    id="joinRoomInput"
+                    type="text"
+                    maxlength="6"
+                    placeholder="Enter 6-character code"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+
+                <button
+                    id="joinRoomBtn"
+                    class="join-button"
+                    type="button"
+                >
+                    Join Room
+                </button>
+
+
+                <p class="lobby-hint">
+                    Enter the room code shared by the host.
+                </p>
+
+            </div>
+
+
+            <!--
+                IMPORTANT:
+                No duplicate playersList,
+                playerCount or startGameBtn here.
+                The current lobby.js uses the
+                elements from createSection.
+            -->
+
+        </section>
+
+
+
+        <!-- =====================================
+             GAME INFORMATION
+        ====================================== -->
+
+        <section class="game-info">
+
+            <!-- Players -->
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    🎮
+                </span>
+
+                <div>
+
+                    <strong>
+                        2 Players
+                    </strong>
+
+                    <p>
+                        Real-time multiplayer
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Best of 3 -->
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    🏆
+                </span>
+
+                <div>
+
+                    <strong>
+                        Best of 3
+                    </strong>
+
+                    <p>
+                        First to win 2 rounds
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Live -->
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    ⚡
+                </span>
+
+                <div>
+
+                    <strong>
+                        Live Game
+                    </strong>
+
+                    <p>
+                        Moves sync instantly
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         SOCKET.IO
+    ====================================== -->
+
+    <script
+        src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+    ></script>
+
+
+    <!-- Socket configuration -->
+
+    <script
+        src="js/socket.js"
+    ></script>
+
+
+    <!-- Lobby JavaScript -->
+
+    <script
+        src="js/lobby/lobby.js"
+    ></script>
+    <script src="js/config.js"></script>
+
+<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+
+<script src="js/socket.js"></script>
+
+<script src="js/lobby/lobby.js"></script>
+
+</body>
+
+</html>

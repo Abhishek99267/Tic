@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tic Tac Arena - Game</title>
+
+
+    <!-- Global CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+
+    <!-- Game CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/game.css"
+    >
+
+</head>
+
+
+<body class="theme-default">
+
+    <main class="game-page">
+
+
+        <!-- =====================================
+             TOP HEADER
+        ====================================== -->
+
+        <header class="game-header">
+
+            <div class="game-brand">
+
+                <span class="brand">
+                    Tic Tac Arena
+                </span>
+
+                <h1>
+                    Battle Arena
+                </h1>
+
+            </div>
+
+
+            <div class="game-header-actions">
+
+                <span
+                    id="roundNumber"
+                    class="round-badge"
+                >
+                    Round 1
+                </span>
+
+
+                <button
+                    id="leaveGameBtn"
+                    class="leave-button"
+                    type="button"
+                >
+                    Leave Game
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             GAME STATUS
+        ====================================== -->
+
+        <section class="game-status">
+
+            <div
+                id="turnMessage"
+                class="turn-message"
+            >
+                Waiting for game...
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PLAYERS
+        ====================================== -->
+
+        <section class="players-area">
+
+
+            <!-- PLAYER ONE -->
+
+            <div
+                id="playerOneCard"
+                class="player-card"
+            >
+
+                <div
+                    id="playerOneAvatar"
+                    class="player-avatar"
+                >
+                    🧑
+                </div>
+
+
+                <div class="player-info">
+
+                    <div class="player-name-row">
+
+                        <h2 id="playerOneName">
+                            Player 1
+                        </h2>
+
+                        <span
+                            id="playerOneSymbol"
+                            class="player-symbol"
+                        >
+                            ✕
+                        </span>
+
+                    </div>
+
+
+                    <div class="score-label">
+                        Score
+                    </div>
+
+
+                    <div
+                        id="playerOneScore"
+                        class="player-score"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VS -->
+
+            <div class="vs-container">
+
+                <span>
+                    VS
+                </span>
+
+            </div>
+
+
+
+            <!-- PLAYER TWO -->
+
+            <div
+                id="playerTwoCard"
+                class="player-card"
+            >
+
+                <div
+                    id="playerTwoAvatar"
+                    class="player-avatar"
+                >
+                    🧑
+                </div>
+
+
+                <div class="player-info">
+
+                    <div class="player-name-row">
+
+                        <h2 id="playerTwoName">
+                            Player 2
+                        </h2>
+
+                        <span
+                            id="playerTwoSymbol"
+                            class="player-symbol"
+                        >
+                            ○
+                        </span>
+
+                    </div>
+
+
+                    <div class="score-label">
+                        Score
+                    </div>
+
+
+                    <div
+                        id="playerTwoScore"
+                        class="player-score"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             BOARD
+        ====================================== -->
+
+        <section class="board-section">
+
+            <div
+                id="gameBoard"
+                class="game-board"
+            >
+                <!--
+                    JavaScript automatically
+                    creates the 9 cells here.
+                -->
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             GAME MESSAGE
+        ====================================== -->
+
+        <div
+            id="gameMessage"
+            class="game-message"
+        ></div>
+
+
+
+        <!-- =====================================
+             NEXT ROUND
+        ====================================== -->
+
+        <div class="next-round-container">
+
+            <button
+                id="nextRoundBtn"
+                class="next-round-button"
+                type="button"
+                style="display: none;"
+            >
+                Next Round
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+             GAME INFO
+        ====================================== -->
+
+        <section class="game-rules">
+
+            <div class="rule-item">
+
+                <span>
+                    🏆
+                </span>
+
+                <div>
+
+                    <strong>
+                        Best of 3
+                    </strong>
+
+                    <p>
+                        First player to win 2 rounds wins the match.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule-item">
+
+                <span>
+                    💰
+                </span>
+
+                <div>
+
+                    <strong>
+                        Round Rewards
+                    </strong>
+
+                    <p>
+                        Win +15 points · Lose -5 points
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule-item">
+
+                <span>
+                    ⚡
+                </span>
+
+                <div>
+
+                    <strong>
+                        Real-Time
+                    </strong>
+
+                    <p>
+                        Every move is synchronized instantly.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         RESULT OVERLAY
+    ====================================== -->
+
+    <div
+        id="resultOverlay"
+        class="result-overlay"
+    >
+
+        <div class="result-card">
+
+
+            <div
+                id="resultIcon"
+                class="result-icon"
+            >
+                🏆
+            </div>
+
+
+            <h2 id="resultTitle">
+                Round Won!
+            </h2>
+
+
+            <p id="resultMessage">
+                Congratulations!
+            </p>
+
+
+            <button
+                id="resultAction"
+                class="result-action"
+                type="button"
+            >
+                Next Round
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SOCKET.IO
+    ====================================== -->
+
+    <script
+        src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+    ></script>
+
+
+    <!-- Socket configuration -->
+
+    <script
+        src="js/socket.js"
+    ></script>
+
+
+    <!-- Game JavaScript -->
+
+    <script
+        src="js/game/game.js"
+    ></script>
+    <script src="js/config.js"></script>
+
+<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+
+<script src="js/socket.js"></script>
+
+<script src="js/game/game.js"></script>
+
+</body>
+
+</html>

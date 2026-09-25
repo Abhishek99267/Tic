@@ -1,0 +1,164 @@
+.match-history {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+.match-history-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.03);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.match-history-card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255,255,255,0.18);
+}
+
+
+.history-main {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.history-game-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    font-size: 22px;
+}
+
+
+.history-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+}
+
+
+.history-info p {
+    margin: 0;
+
+    color: #8d95a7;
+
+    font-size: 13px;
+}
+
+
+.history-result {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.result-badge {
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.result-badge.win {
+    color: #70f0a5;
+
+    background:
+        rgba(40,200,100,0.12);
+}
+
+
+.result-badge.loss {
+    color: #ff8585;
+
+    background:
+        rgba(255,70,70,0.12);
+}
+
+
+.result-badge.abandoned {
+    color: #ffc86b;
+
+    background:
+        rgba(255,180,50,0.12);
+}
+
+
+.round-count {
+    color: #8d95a7;
+
+    font-size: 12px;
+}
+
+
+.empty-history {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    border: 1px dashed
+        rgba(255,255,255,0.12);
+
+    border-radius: 16px;
+}
+
+
+.empty-icon {
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-history h3 {
+    margin: 0 0 6px;
+}
+
+
+.empty-history p {
+    margin: 0;
+
+    color: #8d95a7;
+}
+
+
+.history-loading,
+.history-error {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #8d95a7;
+}

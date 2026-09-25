@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tic Tac Arena - Shop</title>
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/shop.css"
+    >
+</head>
+
+<body>
+
+<main class="shop-page">
+
+    <!-- HEADER -->
+
+    <header class="shop-header">
+
+        <div>
+            <span class="brand">
+                Tic Tac Arena
+            </span>
+
+            <h1>Game Shop</h1>
+
+            <p>
+                Unlock symbols and themes using
+                your battle points.
+            </p>
+        </div>
+
+
+        <div class="header-actions">
+
+            <div class="balance-box">
+                <span>🪙</span>
+
+                <strong id="balance">
+                    0
+                </strong>
+
+                <small>Points</small>
+            </div>
+
+
+            <button
+                id="backBtn"
+                class="back-button"
+                type="button"
+            >
+                ← Back
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- SYMBOL SHOP -->
+
+    <section class="shop-section">
+
+        <div class="section-header">
+
+            <div>
+                <span class="section-label">
+                    SYMBOLS
+                </span>
+
+                <h2>Battle Symbols</h2>
+
+                <p>
+                    Unlock a symbol and equip it
+                    for your next match.
+                </p>
+            </div>
+
+            <div class="price-info">
+                🪙 70 each
+            </div>
+
+        </div>
+
+
+        <div
+            id="symbolGrid"
+            class="shop-grid"
+        >
+
+            <div class="loading-card">
+                Loading symbols...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- THEME SHOP -->
+
+    <section class="shop-section">
+
+        <div class="section-header">
+
+            <div>
+                <span class="section-label">
+                    THEMES
+                </span>
+
+                <h2>Arena Themes</h2>
+
+                <p>
+                    Themes only change how the game
+                    looks on your own screen.
+                </p>
+            </div>
+
+            <div class="price-info">
+                🪙 225 each
+            </div>
+
+        </div>
+
+
+        <div
+            id="themeGrid"
+            class="shop-grid theme-grid"
+        >
+
+            <div class="loading-card">
+                Loading themes...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SHOP INFO -->
+
+    <section class="shop-info">
+
+        <div class="shop-info-card">
+            <span>🏆</span>
+
+            <div>
+                <strong>
+                    Win Rounds
+                </strong>
+
+                <p>
+                    Earn +15 points for every
+                    round you win.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="shop-info-card">
+            <span>💸</span>
+
+            <div>
+                <strong>
+                    Round Loss
+                </strong>
+
+                <p>
+                    A round loss deducts 5 points,
+                    without going below zero.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="shop-info-card">
+            <span>🎨</span>
+
+            <div>
+                <strong>
+                    Personal Style
+                </strong>
+
+                <p>
+                    Equip your purchased symbol
+                    and theme anytime.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+<script src="js/shop.js"></script>
+<script src="js/config.js"></script>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

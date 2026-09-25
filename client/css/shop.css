@@ -1,0 +1,581 @@
+.shop-page {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 35px 0 60px;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+    margin-bottom: 40px;
+}
+
+
+.shop-header h1 {
+    margin: 6px 0;
+    font-size: 34px;
+}
+
+
+.shop-header p {
+    margin: 0;
+    color: #8d95a7;
+}
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.balance-box {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 11px 16px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.balance-box strong {
+    font-size: 18px;
+}
+
+
+.balance-box small {
+    color: #8d95a7;
+}
+
+
+.back-button {
+    padding: 12px 18px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.back-button:hover {
+    background:
+        rgba(255, 255, 255, 0.1);
+}
+
+
+/* ================================
+   SECTIONS
+================================ */
+
+.shop-section {
+    margin-bottom: 45px;
+}
+
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+.section-header h2 {
+    margin: 5px 0;
+    font-size: 25px;
+}
+
+
+.section-header p {
+    margin: 0;
+    color: #8d95a7;
+}
+
+
+.section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #8d95a7;
+}
+
+
+.price-info {
+    padding: 8px 13px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #b7becc;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   GRID
+================================ */
+
+.shop-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+/* ================================
+   ITEM
+================================ */
+
+.shop-card {
+    position: relative;
+
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 24px 18px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.shop-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(255, 255, 255, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.shop-card.selected {
+    border-color:
+        rgba(100, 150, 255, 0.6);
+
+    box-shadow:
+        0 0 25px rgba(80, 120, 255, 0.1);
+}
+
+
+.item-icon {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    font-size: 45px;
+}
+
+
+.shop-card h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+
+.item-price {
+    margin-bottom: 16px;
+
+    color: #a7afbf;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+.shop-button {
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 11px;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.buy-button {
+    background: #ffffff;
+    color: #11131a;
+}
+
+
+.buy-button:hover {
+    transform: translateY(-1px);
+}
+
+
+.select-button {
+    background:
+        rgba(100, 150, 255, 0.14);
+
+    color: #9dbaff;
+
+    border:
+        1px solid rgba(100, 150, 255, 0.2);
+}
+
+
+.selected-button {
+    background:
+        rgba(60, 210, 120, 0.12);
+
+    color: #72eca4;
+
+    border:
+        1px solid rgba(60, 210, 120, 0.2);
+
+    cursor: default;
+}
+
+
+.shop-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* ================================
+   OWNED BADGE
+================================ */
+
+.owned-badge {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(60, 210, 120, 0.12);
+
+    color: #72eca4;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* ================================
+   THEME PREVIEW
+================================ */
+
+.theme-preview {
+    width: 100%;
+    height: 90px;
+
+    margin-bottom: 15px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    font-size: 25px;
+}
+
+
+.preview-default {
+    background:
+        linear-gradient(
+            135deg,
+            #171b26,
+            #252b3b
+        );
+}
+
+
+.preview-neon {
+    background:
+        linear-gradient(
+            135deg,
+            #080818,
+            #19104a
+        );
+
+    box-shadow:
+        inset 0 0 25px
+        rgba(100, 50, 255, 0.25);
+}
+
+
+.preview-space {
+    background:
+        radial-gradient(
+            circle at top,
+            #303567,
+            #080b18 70%
+        );
+}
+
+
+.preview-fire {
+    background:
+        linear-gradient(
+            135deg,
+            #3b0c09,
+            #b63612
+        );
+}
+
+
+.preview-nature {
+    background:
+        linear-gradient(
+            135deg,
+            #10281e,
+            #245b3c
+        );
+}
+
+
+/* ================================
+   INFO
+================================ */
+
+.shop-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.shop-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.shop-info-card > span {
+    font-size: 23px;
+}
+
+
+.shop-info-card strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.shop-info-card p {
+    margin: 0;
+    color: #8d95a7;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.loading-card {
+    grid-column: 1 / -1;
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: #8d95a7;
+}
+
+
+/* ================================
+   TOAST
+================================ */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform:
+        translate(-50%, 30px);
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    background: #202531;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    color: white;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: 0.25s;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+.toast.success {
+    border-color:
+        rgba(70, 220, 130, 0.35);
+}
+
+
+.toast.error {
+    border-color:
+        rgba(255, 80, 80, 0.35);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .shop-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .shop-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .shop-page {
+        width: min(
+            100% - 28px,
+            1180px
+        );
+
+        padding-top: 20px;
+    }
+
+
+    .shop-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+
+    .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

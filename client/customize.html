@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tic Tac Arena - Customize</title>
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/customize.css"
+    >
+</head>
+
+<body>
+
+<main class="customize-page">
+
+    <!-- HEADER -->
+
+    <header class="customize-header">
+
+        <div>
+            <span class="brand">
+                Tic Tac Arena
+            </span>
+
+            <h1>Customize</h1>
+
+            <p>
+                Create your own arena identity.
+            </p>
+        </div>
+
+        <button
+            id="backBtn"
+            class="back-button"
+            type="button"
+        >
+            ← Back
+        </button>
+
+    </header>
+
+
+    <!-- PREVIEW -->
+
+    <section class="preview-section">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                PREVIEW
+            </span>
+
+            <h2>Your Player</h2>
+
+        </div>
+
+
+        <div
+            id="previewCard"
+            class="preview-card theme-default"
+        >
+
+            <div
+                id="previewAvatar"
+                class="preview-avatar"
+            >
+                🧑
+            </div>
+
+
+            <div class="preview-player-info">
+
+                <h2 id="previewUsername">
+                    Player
+                </h2>
+
+                <div class="preview-symbol-row">
+
+                    <span>
+                        Symbol:
+                    </span>
+
+                    <strong
+                        id="previewSymbol"
+                    >
+                        ✕
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AVATARS -->
+
+    <section class="customize-section">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                AVATAR
+            </span>
+
+            <h2>Choose Avatar</h2>
+
+        </div>
+
+
+        <div
+            id="avatarGrid"
+            class="avatar-grid"
+        >
+
+            <div class="loading">
+                Loading avatars...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SYMBOLS -->
+
+    <section class="customize-section">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                SYMBOL
+            </span>
+
+            <h2>Choose Symbol</h2>
+
+        </div>
+
+
+        <div
+            id="symbolGrid"
+            class="symbol-grid"
+        >
+
+            <div class="loading">
+                Loading symbols...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLORS -->
+
+    <section class="customize-section">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                COLOR
+            </span>
+
+            <h2>Choose Symbol Color</h2>
+
+        </div>
+
+
+        <div
+            id="colorGrid"
+            class="color-grid"
+        >
+
+            <button
+                class="color-option red"
+                data-color="red"
+                type="button"
+            ></button>
+
+            <button
+                class="color-option blue"
+                data-color="blue"
+                type="button"
+            ></button>
+
+            <button
+                class="color-option green"
+                data-color="green"
+                type="button"
+            ></button>
+
+            <button
+                class="color-option yellow"
+                data-color="yellow"
+                type="button"
+            ></button>
+
+            <button
+                class="color-option purple"
+                data-color="purple"
+                type="button"
+            ></button>
+
+            <button
+                class="color-option orange"
+                data-color="orange"
+                type="button"
+            ></button>
+
+        </div>
+
+    </section>
+
+
+    <!-- THEMES -->
+
+    <section class="customize-section">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                THEME
+            </span>
+
+            <h2>Choose Arena Theme</h2>
+
+        </div>
+
+
+        <div
+            id="themeGrid"
+            class="theme-grid"
+        >
+
+            <div class="loading">
+                Loading themes...
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+<script src="js/customize.js"></script>
+<script src="js/config.js"></script>
+
+<script src="js/customize.js"></script>
+</body>
+</html>
